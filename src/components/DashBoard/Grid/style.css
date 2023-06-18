@@ -127,3 +127,128 @@
 .redIcon{
     color: var(--red);
 }
+
+
+@media screen and (max-width:400px) {
+    .grid-item{
+        background-color: var(--darkgrey);
+        display: flex;
+        flex-flow: column wrap;
+        width: 300px;
+        height: 300px;
+        border-radius: 1.5rem;
+        padding: 1rem;
+        margin: 0.50rem;
+        box-sizing: border-box;
+    }
+    
+    .firstRow{
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
+    
+    .left{
+        display: flex;
+        gap: 1rem;
+    }
+    
+    .img{
+        width: 2rem;
+        height: 2rem;
+    }
+    
+    .coinSymbol{
+        margin: 0;
+        font-size: 1rem;
+        font-weight: 500;
+        text-transform: uppercase;
+    }
+    
+    .coinName{
+        margin: 0;
+        margin-top: 5px;
+        font-size: 0.75rem;
+        font-weight: 500;
+        color: var(--grey);
+    }
+    
+    
+    .bookMarkIcon{
+        border-radius: 50%;
+        display: flex;
+        justify-content: flex-end;
+        align-items: center;
+        font-size: 2rem !important;
+    }
+    
+    .secondRow{
+        display: flex;
+        gap: 1.2rem;
+        margin-top: 2rem;
+    }
+    
+    .marketCap{
+        padding: 0.5rem 1rem;
+        width: 2.5rem;
+        font-size: 1rem;
+        font-weight: 500;
+        border: 2px solid var(--green);
+        border-radius: 2rem;
+    }
+    
+    .green{
+        border: 2px solid var(--green);
+        color: var(--green);
+    }
+    
+    .green:hover{
+        background-color: var(--green);
+        color: var(--white);
+    }
+    
+    .red{
+        border: 2px solid var(--red);
+        color: var(--red);
+    }
+    
+    .red:hover{
+        background-color: var(--red);
+        color: var(--white);
+    }
+    
+    .Icon{
+        padding: 0.5rem;
+        border-radius: 50%;
+    }
+    
+    
+    
+    .bullPrice{
+        font-size: 1rem;
+        font-weight: 500;
+        color: var(--green);
+    }
+    
+    .bearPrice{
+        font-size: 1rem;
+        font-weight: 500;
+        color: var(--red);
+    }
+    
+    .total{
+        font-size: 0.90rem;
+        font-weight: 600;
+        color: var(--grey);
+    }
+    
+    .greenIcon{
+        color: var(--green);
+    }
+    
+    .redIcon{
+        color: var(--red);
+    }
+
+    
+}

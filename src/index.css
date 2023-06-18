@@ -96,6 +96,10 @@ body {
 }
 
 @media screen and (max-width:600px) {
+
+  .dashBoardPage{
+    overflow-x: hidden;
+  }
   .compareSelect{
     display: flex;
     flex-direction: column;

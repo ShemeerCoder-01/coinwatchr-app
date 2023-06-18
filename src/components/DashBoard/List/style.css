@@ -143,7 +143,6 @@
   
     .list-item {
       width: 75vw;
-      padding-left:1rem !important;
       margin: 0 2rem;
     }
   
@@ -195,7 +194,9 @@
       width: 3rem !important;
     }
     .list-item{
-      padding-left: 1rem !important;
+      display: flex;
+      gap: 1rem;
+      justify-content: center;
     }
   
     .coinLogo {

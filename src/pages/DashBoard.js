@@ -45,7 +45,7 @@ function DashBoardPage() {
   }
 
   return (
-    <div>
+    <div className='dashBoardPage'>
       <Header/>
       {isLoading?<LoaderComponent/>:
         <div>

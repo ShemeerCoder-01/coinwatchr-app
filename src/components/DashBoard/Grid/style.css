@@ -134,8 +134,8 @@
         background-color: var(--darkgrey);
         display: flex;
         flex-flow: column wrap;
-        width: 300px;
-        height: 300px;
+        width: 350px;
+        height: 350px;
         border-radius: 1.5rem;
         padding: 1rem;
         margin: 0.50rem;

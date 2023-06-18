@@ -1,0 +1,12 @@
+.cryptoSelect{
+    display: flex;
+    gap: 2rem;
+    justify-content: flex-start;
+    margin: 1rem 4.2rem;
+}
+
+.coin-flex{
+    display: flex;
+    gap: 1rem;
+    align-items: center;
+}

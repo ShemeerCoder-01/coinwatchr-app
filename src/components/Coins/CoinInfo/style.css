@@ -1,0 +1,35 @@
+.currCoinName{
+    margin: 0;
+    padding-left: 1rem;
+}
+
+.currCoinDesc{
+    padding-left: 1rem;
+    margin-top: 1rem;
+    color: var(--white);
+}
+
+.currCoinDesc p{
+    cursor: pointer;
+    color: var(--grey);
+}
+
+.currCoinDesc a{
+    color: var(--white);
+}
+
+.currCoinDesc a:hover{
+    color: var(--blue);
+}
+
+.toggle{
+    color: var(--darkgrey);
+}
+
+
+@media screen and (max-width:600px) {
+    .currCoinName{
+        font-size: 1.4rem !important;
+    }
+    
+}

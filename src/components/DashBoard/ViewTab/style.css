@@ -1,0 +1,15 @@
+.grid{
+    display: flex;
+    gap: 1.2rem;
+    margin: 1rem;
+    flex-flow: row wrap;
+    box-sizing: border-box;
+    justify-content: center;
+}
+
+.tableVIew{
+    width: 150vw;
+    /* display: block;  */
+    /* margin-left: auto;
+    margin-right: auto; */
+}

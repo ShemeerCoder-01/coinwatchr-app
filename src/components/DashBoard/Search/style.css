@@ -1,0 +1,28 @@
+.searchBar{
+    display: flex;
+    gap: 1rem;
+    align-items: center;
+    justify-content: flex-start;
+    width: 75%;
+    margin-top: 1.5rem !important;
+    margin-bottom: 0.75rem !important;
+    margin: auto;
+    background-color: var(--darkgrey);
+    padding: 0.65rem 1rem;
+    border-radius: 2rem;
+}
+
+.searchBar input {
+    width: 100%;
+    background-color: var(--darkgrey);
+    font-size: 1.1rem;
+    padding: 0.5rem;
+    border: none;
+    outline: none;
+    color: var(--grey);
+}
+
+.searchBar .searchIcon{
+    color: var(--grey);
+    font-size: 1.5rem;
+}

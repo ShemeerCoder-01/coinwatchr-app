@@ -1,0 +1,357 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;500;600;700;800;900&display=swap');
+
+.landingPage{
+    display: flex;
+    justify-content: space-between;
+    gap: 3rem;
+    padding: 1rem;
+    padding-left: 3rem;
+    margin-top: 2rem;
+    font-family: sans-serif;
+}
+
+.leftArea{
+    width: 60%;
+}
+
+.crypto-heading,.realTime-heading{
+    font-size: 6.5rem;
+    font-weight: 700;
+    margin: 0;
+}
+
+.crypto-heading{
+    color: var(--white);
+}
+.realTime-heading{
+    color: var(--blue);
+}
+
+.para{
+    color: var(--grey);
+}
+
+.buttons{
+    display: flex;
+    gap: 1.5rem;
+    margin-top: 2rem;
+}
+
+.crypto-heading:hover{
+    color: var(--black);
+    -webkit-text-stroke: 2px var(--white);
+    transition: all 0.3s;
+}
+
+.rightArea{
+    width: 40%;
+    position: relative;
+}
+
+.phone{
+    width: 265px;
+    position: absolute;
+    z-index: 1;
+    border-radius: 2.5rem;
+}
+.gradient{
+    width: 275px;
+    height: 540px;
+    border-radius: 1.5rem;
+    position: absolute;
+    top: 4rem; 
+    left: 7rem; 
+    background: -webkit-linear-gradient(90deg, hsla(206, 59%, 64%, 1) 0%, hsla(211, 72%, 64%, 1) 100%);
+}
+
+@media screen and (max-width:1175px) {
+
+    .crypto-heading,.realTime-heading{
+        font-size: 5.5rem;
+        font-weight: 700;
+        margin: 0;
+    }
+
+    .phone{
+        width: 245px;
+        position: absolute;
+        z-index: 1;
+        border-radius: 2rem;
+    }
+    .gradient{
+        width: 255px;
+        height: 540px;
+    }
+}
+
+@media screen and (max-width:1100px) {
+
+    .crypto-heading,.realTime-heading{
+        font-size: 5rem;
+        font-weight: 700;
+        margin: 0;
+    }
+
+    .phone{
+        width: 225px;
+        position: absolute;
+    }
+    .gradient{
+        width: 235px;
+        height: 440px;
+    }
+}
+
+@media screen and (max-width:1020px) {
+
+    .landingPage{
+        display: flex;
+        flex-flow: column wrap;
+        align-items: center;
+        padding: 1rem;
+        margin: auto;
+    }
+
+    .leftArea{
+        padding-left: 6.5rem;
+        margin-top: 1.5rem;
+    }
+
+    .crypto-heading,.realTime-heading{
+        font-size: 4rem;
+        font-weight: 500;
+        margin: 0;
+    }
+
+    .phone{
+        width: 190px;
+        height: 350px;
+        border-radius: 1.5rem;
+        position: absolute;
+    }
+    .gradient{
+        width: 190px;
+        height: 320px;
+    }
+}
+
+
+@media screen and (max-width:870px) {
+    .landingPage{
+        display: flex;
+        flex-flow: column wrap;
+        align-items: center;
+        padding: 1rem;
+        margin: auto;
+    }
+
+
+    .crypto-heading,.realTime-heading{
+        font-size: 4rem;
+        font-weight: 500;
+        margin: 0;
+    }
+
+    .phone{
+        width: 175px;
+        height: 320px;
+        position: absolute;
+    }
+    .gradient{
+        width: 175px;
+        height: 290px;
+        position: absolute;
+        left: 3.5rem;
+    }
+    
+}
+
+
+@media screen and (max-width:660px) {
+    .landingPage{
+        display: flex;
+        flex-flow: column wrap;
+        align-items: center;
+        padding: 1rem;
+        margin: auto;
+    }
+
+    .leftArea{
+        padding-left: 3.5rem;
+    }
+
+    .crypto-heading,.realTime-heading{
+        font-size: 3.5rem;
+        font-weight: 500;
+        margin: 0;
+    }
+
+    .phone{
+        width: 150px;
+        height: 300px;
+        position: absolute;
+    }
+    .gradient{
+        width: 150px;
+        height: 270px;
+        position: absolute;
+        left: 3.5rem;
+    }
+    
+}
+
+@media screen and (max-width:575px) {
+    .landingPage{
+        display: flex;
+        flex-flow: column wrap;
+        align-items: center;
+        padding: 0.5rem;
+        margin: auto;
+    }
+
+    .crypto-heading,.realTime-heading{
+        font-size: 3rem;
+        font-weight: 400;
+        margin: 0;
+    }
+
+    .phone{
+        width: 150px;
+        height: 300px;
+        position: absolute;
+    }
+    .gradient{
+        width: 150px;
+        height: 270px;
+        position: absolute;
+        left: 3.5rem;
+    }
+
+    .buttons{
+        display: flex;
+        gap: 1.2rem;
+        margin-top: 2rem;
+    }
+    
+    
+}
+
+@media screen and (max-width:500px) {
+    .landingPage{
+        display: flex;
+        flex-flow: column wrap;
+        align-items: center;
+        padding: 0.5rem;
+        margin: 5% auto;
+    }
+
+    .leftArea{
+        margin: 0;
+        padding: 0;
+    }
+
+    .rightArea{
+        padding: 0;
+    }
+
+    .crypto-heading,.realTime-heading{
+        font-size: 2rem;
+        font-weight: 300;
+        margin: 0;
+    }
+
+    .phone{
+        width: 100px;
+        height: 180px;
+        position: absolute;
+    }
+    .gradient{
+        width: 100px;
+        height: 175px;
+        position: absolute;
+        top:2rem;
+        left: 1.75rem;
+    }
+
+    .buttons{
+        display: flex;
+        gap: 0.75rem;
+        margin-top: 2rem;
+        margin: 0;
+    }
+}
+
+@media screen and (max-width:420px) {
+    .landingPage{
+        display: flex;
+        flex-flow: column wrap;
+        align-items: center;
+        margin: 5% auto;
+    }
+
+    .leftArea{
+        /* margin-left: 4.5rem; */
+        padding: 0;
+    }
+
+    .rightArea{
+        padding: 0;
+    }
+
+    .crypto-heading,.realTime-heading{
+        font-size: 1.5rem;
+        font-weight: 300;
+        margin: 0;
+    }
+
+    .phone{
+        width: 100px;
+        height: 180px;
+        position: absolute;
+    }
+    .gradient{
+        width: 100px;
+        height: 175px;
+        position: absolute;
+        top:2rem;
+        left: 1.75rem;
+    }
+
+}
+
+@media screen and (max-width:300px){
+    .landingPage{
+        display: flex;
+        flex-flow: column wrap;
+        align-items: center;
+        margin: 5% auto;
+    }
+
+    .leftArea{
+        /* margin-left: 4.5rem; */
+        padding: 0;
+    }
+
+    .rightArea{
+        padding: 0;
+    }
+
+    .crypto-heading,.realTime-heading{
+        font-size: 1.25rem;
+        font-weight: 300;
+        margin: 0;
+    }
+
+    .phone{
+        width: 100px;
+        height: 180px;
+        position: absolute;
+    }
+    .gradient{
+        width: 100px;
+        height: 175px;
+        position: absolute;
+        top:2rem;
+        left: 1.75rem;
+    }
+}

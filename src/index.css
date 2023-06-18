@@ -37,7 +37,7 @@ body {
   -moz-osx-font-smoothing: grayscale;
   background-color: var(--black);
   color: var(--white);
-  height: 150vh;
+  /* height: 150vh; */
   font-family: sans-serif;
 }
 

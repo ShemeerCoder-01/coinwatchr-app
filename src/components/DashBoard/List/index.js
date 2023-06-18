@@ -82,7 +82,7 @@ function List({coin}) {
          <p className='totalVolume'>${coin.total_volume.toLocaleString()}</p>
         </Tooltip>
         <Tooltip title="Total Market Capital" placement="top">
-         <p className='totalMoney .mobile'>${convertNumber(coin.market_cap)}</p>
+         <p className='totalMoney'>${convertNumber(coin.market_cap)}</p>
         </Tooltip>
         <Tooltip title="Add to Watchlist" placement='top'>
           <div>

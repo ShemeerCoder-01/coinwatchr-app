@@ -44,10 +44,11 @@ function SelectCrypto({crypto1,crypto2,handleCoinsChange}) {
             {isLoading? <LoaderComponent/>:
             <div className='cryptoSelect'>
                 <div className='coin-flex'>
-                    <p>Crypto 1 </p>
+                    <p className='pTag'>Crypto 1 </p>
                     <Select
                         value={crypto1}
                         label="Coins"
+                        className='coinSelector'
                         onChange={(e)=> handleCoinsChange(e,false)}
                         sx={styling}
                     >
@@ -58,10 +59,11 @@ function SelectCrypto({crypto1,crypto2,handleCoinsChange}) {
                     </Select>
                 </div>
                 <div className='coin-flex'>
-                    <p>Crypto 2 </p>
+                    <p className='pTag'>Crypto 2 </p>
                     <Select
                         value={crypto2}
                         label="Coins"
+                        className='coinSelector'
                         onChange={(e)=> handleCoinsChange(e,true)}
                         sx={styling}
                     >

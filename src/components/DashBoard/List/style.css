@@ -143,7 +143,8 @@
   
     .list-item {
       width: 75vw;
-      padding: 1.5rem 0rem;
+      padding-left:1rem !important;
+      margin: 0 2rem;
     }
   
     .coinLogo {
@@ -152,6 +153,8 @@
     }
   
   }
+
+  
 
   @media only screen and (max-width: 600px) {
     .marketCapital,
@@ -190,6 +193,9 @@
   
     .labelArea {
       width: 3rem !important;
+    }
+    .list-item{
+      padding-left: 1rem !important;
     }
   
     .coinLogo {

@@ -54,3 +54,26 @@
         height: 1.5rem !important;
     }
 }
+
+@media screen and (max-width:440px) {
+    .cryptoSelect{
+        display: flex;
+        gap: 0.65rem;
+        justify-content: flex-start;
+        margin: 0.25rem 1.5rem;
+    }
+
+    .coin-flex{
+        display: flex;
+        gap: 0.25rem;
+        align-items: center;
+    }
+
+    .pTag{
+        font-size: 0.6rem !important;
+    }
+    .coinSelector{
+        height: 1.25rem !important;
+        font-size:0.75rem !important ;
+    }
+}

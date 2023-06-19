@@ -97,7 +97,7 @@ function ComparePage() {
 
 
     return (
-        <div>
+        <div className='compare'>
             <Header />
             {isLoading ? (<LoaderComponent />) : (
                 <div className='comparePage'>

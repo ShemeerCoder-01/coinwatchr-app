@@ -13,7 +13,6 @@ export default function ToggleType({priceType,handlePriceTypeChange}) {
         value={priceType}
         exclusive
         onChange={handlePriceTypeChange}
-        className='typeToggler'
         sx={
             {
                 "& .Mui-selected":{
@@ -32,9 +31,9 @@ export default function ToggleType({priceType,handlePriceTypeChange}) {
             }
         }
         >
-        <ToggleButton value="prices">PRICE</ToggleButton>
-        <ToggleButton value="market_caps">MARKET CAP</ToggleButton>
-        <ToggleButton value="total_volumes">VOLUME</ToggleButton>
+        <ToggleButton className='typeToggler' value="prices">PRICE</ToggleButton>
+        <ToggleButton className='typeToggler' value="market_caps">MARKET CAP</ToggleButton>
+        <ToggleButton className='typeToggler' value="total_volumes">VOLUME</ToggleButton>
         
         </ToggleButtonGroup>
     </div>

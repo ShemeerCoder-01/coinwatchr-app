@@ -168,6 +168,12 @@
     .coinShortHand,.fullName,.bullishPrice,.bearishPrice,.totalMoney {
       font-size: 0.8rem !important;
     }
+    .list-item{
+      display: flex;
+      gap: 1rem;
+      padding: 1.2rem 0;
+      justify-content: center;
+    }
   
     .labelArea {
       width: 4rem !important;
@@ -196,6 +202,7 @@
     .list-item{
       display: flex;
       gap: 1rem;
+      padding: 1rem 0;
       justify-content: center;
     }
   

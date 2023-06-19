@@ -91,15 +91,31 @@ body {
   background-color: var(--darkgrey);
   padding:1.1rem 0.5rem;
   margin: 0 1.5rem;
-  /* margin-top: 0.5rem; */
   border-radius: 1.2rem;
 }
 
 @media screen and (max-width:600px) {
+  .currCoinTab{
+    background-color: var(--darkgrey);
+    padding:1.1rem 0.5rem;
+    margin: 0 0.5rem;
+    margin-top: 1.2rem;
+    border-radius: 1.2rem;
+  }
 
   .dashBoardPage{
     overflow-x: hidden;
   }
+  .compare{
+    overflow-x: hidden;
+  }
+  .comparePageTab{
+    background-color: var(--darkgrey);
+    padding:1.1rem 0.35rem;
+    margin: 0 0.8rem;
+    border-radius: 1.2rem;
+  }
+
   .compareSelect{
     display: flex;
     flex-direction: column;

@@ -33,3 +33,13 @@
     }
     
 }
+
+@media screen and (max-width:440px) {
+    .currCoinName{
+        font-size: 1.1rem !important;
+    }
+    .currCoinDesc{
+        font-size: 0.75rem !important;
+    }
+    
+}

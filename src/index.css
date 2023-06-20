@@ -95,6 +95,9 @@ body {
 }
 
 @media screen and (max-width:600px) {
+  body{
+    overflow-x: hidden;
+  }
   .currCoinTab{
     background-color: var(--darkgrey);
     padding:1.1rem 0.5rem;

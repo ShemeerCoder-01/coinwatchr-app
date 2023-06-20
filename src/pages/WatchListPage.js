@@ -4,24 +4,28 @@ import Tabs from '../components/DashBoard/ViewTab';
 import { getFullCoins } from '../functions/getFullCoins';
 import LoaderComponent from '../components/Common/Loader';
 import Button from '../components/Common/Button';
-
+import { removeFromWatchList } from '../functions/removeFromWatchList';
 
 function WatchListPage() {
 
   const [watchListCoins, setWatchListCoins] = useState([]);
   const [isLoading, setIsLoading] = useState(false);
-  
+  const [isRemoved,setIsRemoved] = useState(false);
 
-  const coinIds = JSON.parse(localStorage.getItem('watchlist'));
+  // const[flag,setFlag] = useState(false);
+ 
+
+  
 
 
   useEffect(() => {
     getData();
   },[]);
-
+  
   async function getData() {
     setIsLoading(true);
     const FullCoins = await getFullCoins();
+    const coinIds = JSON.parse(localStorage.getItem('watchlist'));
     if (coinIds) {
       const markedCoins = FullCoins.filter((coin) => coinIds.includes(coin.id));
       setWatchListCoins(markedCoins);
@@ -30,14 +34,20 @@ function WatchListPage() {
     setIsLoading(false);
   }
 
+  const handleRemove = (id)=>{
+      removeFromWatchList(id);
+      setWatchListCoins(watchListCoins.filter((coin)=> coin.id !== id));
+      setIsRemoved(!isRemoved);
+  }
+
 
   return (
     <div>
-      {isLoading || !coinIds ? (
+      {isLoading? (
         <LoaderComponent />
       ) : (
         <div style={{ minHeight: "90vh" }}>
-          {watchListCoins.length === 0 || !coinIds ? (
+          {watchListCoins.length === 0? (
             <div>
               <Header />
               <h1 style={{ textAlign: "center", marginBottom: "2rem" }}>
@@ -50,7 +60,7 @@ function WatchListPage() {
           ) : (
             <div style={{ height: "95vh" }}>
               <Header />
-              <Tabs coins={watchListCoins} />
+              <Tabs coins={watchListCoins} handleRemove={handleRemove} />
               
             </div>
           )}

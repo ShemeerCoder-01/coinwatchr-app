@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React from 'react'
 import './style.css'
 import TrendingUpIcon from '@mui/icons-material/TrendingUp';
 import TrendingDownIcon from '@mui/icons-material/TrendingDown';
@@ -6,25 +6,24 @@ import IconButton from '@mui/material/IconButton';
 import StarOutlineRoundedIcon from '@mui/icons-material/StarOutlineRounded';
 import { Link } from 'react-router-dom';
 import { addToWatchList } from '../../../functions/addToWatchList';
-import { removeFromWatchList } from '../../../functions/removeFromWatchList';
 import { IsAdded } from '../../../functions/IsAdded';
 import {motion} from 'framer-motion';
 
-function Grid({ coin}) {
+function Grid({ coin,handleRemove}) {
 
-  const[flag,setFlag] = useState(false);
+  // const[flag,setFlag] = useState(false);
 
-  console.log(flag);
+  // console.log(flag);
 
   const handleIconClick = (e,id)=>{
     e.preventDefault();
     if(IsAdded(coin.id)){
-      removeFromWatchList(id);
-      setFlag(false);
+      handleRemove(coin.id);
+      // setFlag(false);
     }
     else{
       addToWatchList(id);
-      setFlag(true);
+      // setFlag(true);
     }
   }
 

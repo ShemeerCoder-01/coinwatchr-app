@@ -8,7 +8,7 @@ import Grid from '../Grid';
 import './style.css';
 import List from '../List';
 
-export default function Tabs({coins}) {
+export default function Tabs({coins,handleRemove}) {
   const [value, setValue] = useState('1');
 
   const newTheme = createTheme({
@@ -41,7 +41,7 @@ export default function Tabs({coins}) {
                 <TabPanel value="1">
                   <div className='grid'>
                     {coins.map((item,idx)=>{
-                      return <Grid coin={item} key={idx} />
+                      return <Grid coin={item} key={idx} handleRemove={handleRemove}/>
                       
                     })}
                   </div>
@@ -51,7 +51,7 @@ export default function Tabs({coins}) {
                   <table className='tableView'>
                     <tbody>
                       {coins.map((item,idx)=>{
-                        return <List coin={item} key={idx}/>
+                        return <List coin={item} key={idx} handleRemove={handleRemove}/>
                         
                       })}
                     </tbody>

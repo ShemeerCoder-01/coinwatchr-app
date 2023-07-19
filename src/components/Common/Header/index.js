@@ -3,7 +3,6 @@ import './style.css'
 import TemporaryDrawer from './Drawer';
 import Button from '../Button';
 import { Link } from 'react-router-dom';
-// import ThemeSwitcher from '../ThemeSwitcher';
 import Switch from "@mui/material/Switch";
 
 function Header() {
@@ -28,17 +27,19 @@ function Header() {
       setLight();
     }
     setDarkMode(!darkMode);
-    // toast.success("Theme Changed!");
+    
   };
 
   const setDark = () => {
     localStorage.setItem("theme", "dark");
     document.documentElement.setAttribute("data-theme", "dark");
+    setDarkMode(true);
   };
 
   const setLight = () => {
     localStorage.setItem("theme", "light");
     document.documentElement.setAttribute("data-theme", "light");
+    setDarkMode(false);
   };
 
 

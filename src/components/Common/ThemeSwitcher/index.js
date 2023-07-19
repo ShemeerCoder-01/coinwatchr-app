@@ -28,17 +28,7 @@ const darkTheme = createTheme({
   },
 });
 
-// palette.background.paper
 
-// Example component using the theme
-// function MyComponent() {
-//   const theme = useTheme();
-
-//   return (
-//     <div style={{ backgroundColor: theme.palette.background.default, color: theme.palette.text.primary }}>
-//     </div>
-//   );
-// }
 
 // ThemeProvider and theme toggle component
 function ThemeSwitcher() {
@@ -52,7 +42,7 @@ function ThemeSwitcher() {
     <ThemeProvider theme={darkTheme}>
       <div>
         <Switch
-          checked={theme === darkTheme}
+          checked={theme === darkTheme?true:false}
           onChange={toggleTheme}
         />
         {/* <MyComponent /> */}

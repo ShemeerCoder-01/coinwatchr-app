@@ -9,8 +9,6 @@ export default function SelectRange({days,handleDaysChange,isCompare}) {
     <div className='selectDays'>
         {!isCompare && <p className='pTag'>Price Change in the last </p>}
         <Select
-          labelId="demo-simple-select-label"
-          id="demo-simple-select"
           value={days}
           label="Days"
           className='daySelector'

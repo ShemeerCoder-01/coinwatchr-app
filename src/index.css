@@ -37,7 +37,6 @@ body {
   -moz-osx-font-smoothing: grayscale;
   background-color: var(--black);
   color: var(--white);
-  /* height: 150vh; */
   font-family: sans-serif;
 }
 
@@ -94,6 +93,8 @@ body {
   border-radius: 1.2rem;
 }
 
+
+
 @media screen and (max-width:600px) {
   body{
     overflow-x: hidden;
@@ -123,6 +124,10 @@ body {
     display: flex;
     flex-direction: column;
     gap: 0.25rem !important;
+  }
+
+  .emptyWatchlist > .footer{
+    margin-top: 40rem;
   }
   
 }

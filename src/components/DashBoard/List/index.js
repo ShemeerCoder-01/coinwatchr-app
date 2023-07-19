@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useState } from 'react'
 import './style.css';
 import TrendingUpIcon from '@mui/icons-material/TrendingUp';
 import TrendingDownIcon from '@mui/icons-material/TrendingDown';
@@ -6,27 +6,23 @@ import IconButton from '@mui/material/IconButton';
 import Tooltip from '@mui/material/Tooltip';
 import { Link } from 'react-router-dom';
 import StarOutlineRoundedIcon from '@mui/icons-material/StarOutlineRounded';
+import StarsRoundedIcon from '@mui/icons-material/StarsRounded';
 import { addToWatchList } from '../../../functions/addToWatchList';
 import { IsAdded } from '../../../functions/IsAdded';
 import { convertNumber } from '../../../functions/convertNumber';
 import { motion } from "framer-motion";
 
 function List({coin,handleRemove}) {
+  const [watchlisted,setWatchlisted] = useState(IsAdded(coin.id));
 
-
-  // const[flag,setFlag] = useState(false);
-
-  // console.log(flag);
 
   const handleIconClick = (e,id)=>{
     e.preventDefault();
     if(IsAdded(coin.id)){
       handleRemove(coin.id);
-      // setFlag(false);
     }
     else{
       addToWatchList(id);
-      // setFlag(true);
     }
   }
 
@@ -37,7 +33,7 @@ function List({coin,handleRemove}) {
      initial={{ opacity: 0, x: -50 }}
      whileInView={{ opacity: 1, x: 0 }}
      transition={{ duration: 0.5, delay: 0.3 }}
-     className={coin.market_cap_change_percentage_24h > 0?'list-item bullish':"list-item bearish"}>
+     className={`list-item ${coin.market_cap_change_percentage_24h > 0?'bullish':"bearish"}`}>
       
       <td className='firstCol'>
         <Tooltip title="Logo" placement="top">
@@ -85,9 +81,11 @@ function List({coin,handleRemove}) {
         </Tooltip>
         <Tooltip title="Add to Watchlist" placement='top'>
           <div>
-          <IconButton onClick={(e)=>handleIconClick(e,coin.id)} >
-              <StarOutlineRoundedIcon className={coin.market_cap_change_percentage_24h > 0? "watchlistIcon greenish": "watchlistIcon redish"}/>
-          </IconButton>
+          {!watchlisted?(<IconButton onClick={(e)=>handleIconClick(e,coin.id)} >
+              <StarOutlineRoundedIcon className={`watchlistIcon ${coin.market_cap_change_percentage_24h > 0? "greenish": "redish"}`}/>
+          </IconButton>):(<IconButton onClick={(e)=>handleIconClick(e,coin.id)} >
+              <StarsRoundedIcon className={`bookMarkIcon ${coin.market_cap_change_percentage_24h > 0? " green": " red"}`} />
+            </IconButton>)}
           </div>
         </Tooltip>
         

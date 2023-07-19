@@ -49,6 +49,7 @@ function SelectCrypto({crypto1,crypto2,handleCoinsChange}) {
                         value={crypto1}
                         label="Coins"
                         className='coinSelector'
+                        //here passing second argument as false to check weather it is second coin or not
                         onChange={(e)=> handleCoinsChange(e,false)}
                         sx={styling}
                     >
@@ -64,6 +65,7 @@ function SelectCrypto({crypto1,crypto2,handleCoinsChange}) {
                         value={crypto2}
                         label="Coins"
                         className='coinSelector'
+                        //if second argument is true then its a second coin
                         onChange={(e)=> handleCoinsChange(e,true)}
                         sx={styling}
                     >

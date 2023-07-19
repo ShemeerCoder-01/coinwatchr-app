@@ -32,11 +32,13 @@ export default function TemporaryDrawer() {
   const setDark = () => {
     localStorage.setItem("theme", "dark");
     document.documentElement.setAttribute("data-theme", "dark");
+    setDarkMode(true);
   };
 
   const setLight = () => {
     localStorage.setItem("theme", "light");
     document.documentElement.setAttribute("data-theme", "light");
+    setDarkMode(false);
   };
 
 
@@ -63,7 +65,7 @@ export default function TemporaryDrawer() {
                 <a className='link dashBoard' href='/dashboard'>
                     <p>DashBoard</p>
                 </a>
-                <Switch checked={!darkMode} onClick={() => changeMode()} />
+                <Switch checked={darkMode} onClick={() => changeMode()} />
             </div>
           </Drawer>
        

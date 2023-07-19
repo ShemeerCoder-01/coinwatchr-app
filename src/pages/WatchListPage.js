@@ -5,6 +5,7 @@ import { getFullCoins } from '../functions/getFullCoins';
 import LoaderComponent from '../components/Common/Loader';
 import Button from '../components/Common/Button';
 import { removeFromWatchList } from '../functions/removeFromWatchList';
+import Footer from '../components/Common/Footer'
 
 function WatchListPage() {
 
@@ -12,7 +13,6 @@ function WatchListPage() {
   const [isLoading, setIsLoading] = useState(false);
   const [isRemoved,setIsRemoved] = useState(false);
 
-  // const[flag,setFlag] = useState(false);
  
 
   
@@ -48,7 +48,7 @@ function WatchListPage() {
       ) : (
         <div style={{ minHeight: "90vh" }}>
           {watchListCoins.length === 0? (
-            <div>
+            <div className='emptyWatchlist'>
               <Header />
               <h1 style={{ textAlign: "center", marginBottom: "2rem" }}>
                 No Items in the Watchlist
@@ -56,12 +56,13 @@ function WatchListPage() {
               <div style={{ display: "flex", justifyContent: "center" }}>
                 <Button text={"Dashboard"} />
               </div>
+              <Footer className="footer"/>
             </div>
           ) : (
             <div style={{ height: "95vh" }}>
               <Header />
               <Tabs coins={watchListCoins} handleRemove={handleRemove} />
-              
+              <Footer/>
             </div>
           )}
         </div>

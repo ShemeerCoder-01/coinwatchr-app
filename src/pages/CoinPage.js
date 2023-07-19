@@ -40,9 +40,14 @@ function CoinPage() {
 
     const handlePriceTypeChange = async(event, newType) => {
         setIsLoading(true);
-        setPriceType(newType);
-        const newPriceData = await getPrice(id,days,newType);
-        settingChartData(setChartData,newPriceData);
+        setPriceType(prevState=> newType !== null? newType:prevState);
+        if(newType === null){
+            const newPriceData = await getPrice(id,days,priceType);
+            settingChartData(setChartData,newPriceData);
+        }else{
+            const newPriceData = await getPrice(id,days,newType);
+            settingChartData(setChartData,newPriceData);
+        }
         setIsLoading(false);
 
     };

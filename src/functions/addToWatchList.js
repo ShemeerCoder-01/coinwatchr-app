@@ -3,7 +3,6 @@ export const addToWatchList = (id)=>{
    
     if(localStorage.getItem('watchlist')){
         const coinsData = JSON.parse(localStorage.getItem('watchlist'));
-        console.log(coinsData);
         if(!coinsData.includes(id)){
             coinsData.push(id);
             localStorage.setItem('watchlist',JSON.stringify(coinsData));
@@ -13,7 +12,6 @@ export const addToWatchList = (id)=>{
         const watchlist = [];
         watchlist.push(id);
         const coinsData = JSON.stringify(watchlist);
-        console.log(coinsData);
         localStorage.setItem("watchlist", coinsData);
     }
     toast.success(

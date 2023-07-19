@@ -8,6 +8,8 @@ import Grid from '../Grid';
 import './style.css';
 import List from '../List';
 
+// here handleRemove function passed as prop from watchList.js page
+
 export default function Tabs({coins,handleRemove}) {
   const [value, setValue] = useState('1');
 

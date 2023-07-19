@@ -51,6 +51,14 @@ function DashBoardPage() {
         <div>
           <Search search={search} onchangeSearch={onchangeSearch} />
           <Tabs coins={search?filtered:currPage}/>
+          {
+            search && filtered.length === 0 && (
+              <div style={{display:"flex",flexDirection:"column", justifyContent:"center",alignItems:"center"}}>
+                <h1 style={{ textAlign: "center",margin:0}}>Sorry...</h1>
+                <p>Search item not found</p>
+              </div>
+            )
+          }
           {!search && 
             <PaginationComponent page={page} onPageChange={onPageChange}/>
           }

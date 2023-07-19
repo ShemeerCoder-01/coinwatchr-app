@@ -1,9 +1,10 @@
-import React from 'react'
+import React, { useState } from 'react'
 import './style.css'
 import TrendingUpIcon from '@mui/icons-material/TrendingUp';
 import TrendingDownIcon from '@mui/icons-material/TrendingDown';
 import IconButton from '@mui/material/IconButton';
 import StarOutlineRoundedIcon from '@mui/icons-material/StarOutlineRounded';
+import StarsRoundedIcon from '@mui/icons-material/StarsRounded';
 import { Link } from 'react-router-dom';
 import { addToWatchList } from '../../../functions/addToWatchList';
 import { IsAdded } from '../../../functions/IsAdded';
@@ -11,19 +12,15 @@ import {motion} from 'framer-motion';
 
 function Grid({ coin,handleRemove}) {
 
-  // const[flag,setFlag] = useState(false);
-
-  // console.log(flag);
+  const [watchlisted,setWatchlisted] = useState(IsAdded(coin.id));
 
   const handleIconClick = (e,id)=>{
     e.preventDefault();
     if(IsAdded(coin.id)){
       handleRemove(coin.id);
-      // setFlag(false);
     }
     else{
       addToWatchList(id);
-      // setFlag(true);
     }
   }
 
@@ -33,7 +30,7 @@ function Grid({ coin,handleRemove}) {
        initial={{ opacity: 0, y: 50 }}
        whileInView={{ opacity: 1, y: 0 }}
        transition={{ duration: 0.5, delay: 0.3 }}
-       className={coin.market_cap_change_percentage_24h > 0?'grid-item bull':"grid-item bear"}
+       className={`grid-item ${coin.market_cap_change_percentage_24h > 0?'bull':"bear"}`}
        >
         <div className='firstRow'>
           <div className='left'>
@@ -46,9 +43,12 @@ function Grid({ coin,handleRemove}) {
             </div>
           </div>
           <div>
-            <IconButton onClick={(e)=>handleIconClick(e,coin.id)} >
-              <StarOutlineRoundedIcon className={coin.market_cap_change_percentage_24h > 0? "bookMarkIcon green": "bookMarkIcon red"}/>
-            </IconButton>
+            {!watchlisted?(<IconButton onClick={(e)=>handleIconClick(e,coin.id)} >
+              <StarOutlineRoundedIcon className={`bookMarkIcon ${coin.market_cap_change_percentage_24h > 0? " green": " red"}`} />
+            </IconButton>):
+            (<IconButton onClick={(e)=>handleIconClick(e,coin.id)} >
+              <StarsRoundedIcon className={`bookMarkIcon ${coin.market_cap_change_percentage_24h > 0? " green": " red"}`} />
+            </IconButton>)}
           </div>
         </div>
         <div className='secondRow'>

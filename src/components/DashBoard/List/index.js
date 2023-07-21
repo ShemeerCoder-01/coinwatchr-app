@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import './style.css';
 import TrendingUpIcon from '@mui/icons-material/TrendingUp';
 import TrendingDownIcon from '@mui/icons-material/TrendingDown';
@@ -13,7 +13,11 @@ import { convertNumber } from '../../../functions/convertNumber';
 import { motion } from "framer-motion";
 
 function List({coin,handleRemove}) {
-  const [watchlisted,setWatchlisted] = useState(IsAdded(coin.id));
+  const [watchlisted,setWatchlisted] = useState(false);
+
+  useEffect(()=>{
+    setWatchlisted(IsAdded(coin.id));
+  },[coin]);
 
 
   const handleIconClick = (e,id)=>{

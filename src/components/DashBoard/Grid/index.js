@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import './style.css'
 import TrendingUpIcon from '@mui/icons-material/TrendingUp';
 import TrendingDownIcon from '@mui/icons-material/TrendingDown';
@@ -12,8 +12,12 @@ import {motion} from 'framer-motion';
 
 function Grid({ coin,handleRemove}) {
 
-  const [watchlisted,setWatchlisted] = useState(IsAdded(coin.id));
-
+  const [watchlisted,setWatchlisted] = useState(false);
+  
+  useEffect(()=>{
+    setWatchlisted(IsAdded(coin.id));
+  },[coin]);
+  
   const handleIconClick = (e,id)=>{
     e.preventDefault();
     if(IsAdded(coin.id)){
@@ -43,7 +47,7 @@ function Grid({ coin,handleRemove}) {
             </div>
           </div>
           <div>
-            {!watchlisted?(<IconButton onClick={(e)=>handleIconClick(e,coin.id)} >
+            {watchlisted !== true?(<IconButton onClick={(e)=>handleIconClick(e,coin.id)} >
               <StarOutlineRoundedIcon className={`bookMarkIcon ${coin.market_cap_change_percentage_24h > 0? " green": " red"}`} />
             </IconButton>):
             (<IconButton onClick={(e)=>handleIconClick(e,coin.id)} >

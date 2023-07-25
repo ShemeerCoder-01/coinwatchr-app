@@ -1,12 +1,13 @@
 import { convertDate } from "./convertDate";
 
-export const settingChartData = (setChartData, priceData1, priceData2) => {
+export const settingChartData = (setChartData, priceData1, priceData2,coin) => {
+    
     if (priceData2) {
         setChartData({
             labels: priceData1.map((price) => convertDate(price[0])),
             datasets: [
                 {
-                    label: 'Crypto 1',
+                    label: coin[0].charAt(0).toUpperCase()+coin[0].slice(1),
                     data: priceData1.map((price) => price[1]),
                     // borderWidth:2,
                     fill: false,
@@ -16,7 +17,7 @@ export const settingChartData = (setChartData, priceData1, priceData2) => {
                     yAxisID: 'y',
                 },
                 {
-                    label: 'Crypto 2',
+                    label: coin[1].charAt(0).toUpperCase()+coin[1].slice(1),
                     data: priceData2.map((price) => price[1]),
                     // borderWidth:2,
                     fill: false,

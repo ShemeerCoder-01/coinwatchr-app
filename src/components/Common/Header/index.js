@@ -7,9 +7,7 @@ import Switch from "@mui/material/Switch";
 
 function Header() {
 
-  const [darkMode, setDarkMode] = useState(
-    localStorage.getItem("theme") === "dark" ? true : false
-  );
+  const [darkMode, setDarkMode] = useState(false);
   console.log(darkMode);
 
   useEffect(() => {

@@ -1,4 +1,3 @@
-import axios from 'axios';
 import React, { useEffect, useState } from 'react'
 import { useParams } from 'react-router-dom';
 import LoaderComponent from '../components/Common/Loader';
@@ -9,7 +8,6 @@ import CoinInfo from '../components/Coins/CoinInfo';
 import { getCoinData } from '../functions/getCoinData';
 import { getPrice } from '../functions/getPrice';
 import LineChart from '../components/Coins/LineChart';
-import { convertDate } from '../functions/convertDate';
 import SelectRange from '../components/Coins/SelectDate';
 import { settingChartData } from '../functions/settingChartData';
 import ToggleType from '../components/Coins/ToggleType';
@@ -27,6 +25,7 @@ function CoinPage() {
     
     useEffect(()=>{
         getData(id);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
     },[id]);
 
     const handleDaysChange = async(e)=>{

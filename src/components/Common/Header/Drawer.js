@@ -7,9 +7,7 @@ import Switch from "@mui/material/Switch";
 export default function TemporaryDrawer() {
 
   const [state, setState] = useState(false);
-  const [darkMode, setDarkMode] = useState(
-    localStorage.getItem("theme") === "dark" ? true : false
-  );
+  const [darkMode, setDarkMode] = useState(false);
   console.log(darkMode);
 
   useEffect(() => {

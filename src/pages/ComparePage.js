@@ -25,11 +25,10 @@ function ComparePage() {
     const [chartData,setChartData] = useState({});
     const [priceType,setPriceType] = useState("prices");
 
-    console.log("hi i am crypto1", currCrypto1);
-    console.log("hi i am crypto2", currCrypto2);
 
     useEffect(() => {
         getData();
+     // eslint-disable-next-line
     },[]);
 
     
@@ -62,7 +61,8 @@ function ComparePage() {
         const priceData1 = await getPrice(crypto1, days, "prices");
         const priceData2 = await getPrice(crypto2, days, "prices");
         console.log(priceData1,priceData2);
-        settingChartData(setChartData,priceData1,priceData2);
+        const coins = [crypto1,crypto2];
+        settingChartData(setChartData,priceData1,priceData2,coins);
         setIsLoading(false);
 
     }
@@ -76,7 +76,8 @@ function ComparePage() {
             coinObject(setCurrCrypto2, coin2Data);
             const priceData1 = await getPrice(crypto1, days, "prices");
             const priceData2 = await getPrice(e.target.value, days, "prices");
-            settingChartData(setChartData,priceData1,priceData2);
+            const coins = [crypto1,e.target.value];
+            settingChartData(setChartData,priceData1,priceData2,coins);
             
 
         } else {
@@ -85,7 +86,8 @@ function ComparePage() {
             coinObject(setCurrCrypto1, coin1Data);
             const priceData1 = await getPrice(e.target.value, days, "prices");
             const priceData2 = await getPrice(crypto2, days, "prices");
-            settingChartData(setChartData,priceData1,priceData2);
+            const coins =[e.target.value,crypto2]
+            settingChartData(setChartData,priceData1,priceData2,coins);
             
 
         }

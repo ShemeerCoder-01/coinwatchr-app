@@ -19,16 +19,15 @@ function DashBoardPage() {
   const onPageChange = (event, value) => {
     setPage(value);
     let prevIndex = (value -1) * 10;
-    setCurrPage(crypto.slice(prevIndex,prevIndex+10));
+    setCurrPage(crypto?.slice(prevIndex,prevIndex+10));
   };
-  console.log(crypto);
+  
 
   const onchangeSearch = (e)=>{
     setSearch(e.target.value);
-    let filtered = crypto.filter((item)=> item.name.toLowerCase().includes(e.target.value.toLowerCase()) ||
+    let filtered = crypto?.filter((item)=> item.name.toLowerCase().includes(e.target.value.toLowerCase()) ||
     item.symbol.toLowerCase().includes(e.target.value.toLowerCase()) );
-    setFiltered(filtered)
-    console.log(filtered);
+    setFiltered(filtered);
   }
 
   
@@ -40,7 +39,7 @@ function DashBoardPage() {
   async function getData(){
     const coins = await getFullCoins();
     setCrypto(coins);
-    setCurrPage(coins.slice(0,10));
+    setCurrPage(coins?.slice(0,10));
     setIsLoading(false);
   }
 

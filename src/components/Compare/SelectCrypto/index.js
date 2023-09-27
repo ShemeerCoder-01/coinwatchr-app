@@ -53,7 +53,7 @@ function SelectCrypto({crypto1,crypto2,handleCoinsChange}) {
                         onChange={(e)=> handleCoinsChange(e,false)}
                         sx={styling}
                     >
-                        {Coins.filter((item)=> item.id !== crypto2).map((coin,idx)=>{
+                        {Coins?.filter((item)=> item.id !== crypto2).map((coin,idx)=>{
                             return <MenuItem key={idx} value={coin.id}>{coin.name}</MenuItem>
                         })}
                         
@@ -69,7 +69,7 @@ function SelectCrypto({crypto1,crypto2,handleCoinsChange}) {
                         onChange={(e)=> handleCoinsChange(e,true)}
                         sx={styling}
                     >
-                         {Coins.filter((item)=> item.id !== crypto1).map((coin,idx)=>{
+                         {Coins?.filter((item)=> item.id !== crypto1).map((coin,idx)=>{
                             return <MenuItem key={idx} value={coin.id}>{coin.name}</MenuItem>
                         })}
                         

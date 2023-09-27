@@ -3,7 +3,7 @@ import './style.css'
 import { useNavigate } from 'react-router-dom';
 import { RWebShare } from 'react-web-share';
 
-function Button({text,outlined}) {
+function Button({text}) {
 
   const navigate = useNavigate();
   

@@ -8,7 +8,7 @@ export default function TemporaryDrawer() {
 
   const [state, setState] = useState(false);
   const [darkMode, setDarkMode] = useState(false);
-  console.log(darkMode);
+
 
   useEffect(() => {
     if (localStorage.getItem("theme") === "light") {

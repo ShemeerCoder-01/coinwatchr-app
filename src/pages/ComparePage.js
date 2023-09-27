@@ -60,7 +60,6 @@ function ComparePage() {
         coinObject(setCurrCrypto1, coin1Data);
         const priceData1 = await getPrice(crypto1, days, "prices");
         const priceData2 = await getPrice(crypto2, days, "prices");
-        console.log(priceData1,priceData2);
         const coins = [crypto1,crypto2];
         settingChartData(setChartData,priceData1,priceData2,coins);
         setIsLoading(false);

@@ -9,7 +9,6 @@ export const settingChartData = (setChartData, priceData1, priceData2,coin) => {
                 {
                     label: coin[0].charAt(0).toUpperCase()+coin[0].slice(1),
                     data: priceData1.map((price) => price[1]),
-                    // borderWidth:2,
                     fill: false,
                     borderColor: '#3a80e9',
                     tension: 0.25,
@@ -19,7 +18,6 @@ export const settingChartData = (setChartData, priceData1, priceData2,coin) => {
                 {
                     label: coin[1].charAt(0).toUpperCase()+coin[1].slice(1),
                     data: priceData2.map((price) => price[1]),
-                    // borderWidth:2,
                     fill: false,
                     borderColor: '#61c96f',
                     tension: 0.25,

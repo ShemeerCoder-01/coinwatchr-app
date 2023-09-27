@@ -27,16 +27,15 @@ function WatchListPage() {
     const FullCoins = await getFullCoins();
     const coinIds = JSON.parse(localStorage.getItem('watchlist'));
     if (coinIds) {
-      const markedCoins = FullCoins.filter((coin) => coinIds.includes(coin.id));
+      const markedCoins = FullCoins?.filter((coin) => coinIds.includes(coin.id));
       setWatchListCoins(markedCoins);
-      console.log(markedCoins);
     }
     setIsLoading(false);
   }
 
   const handleRemove = (id)=>{
       removeFromWatchList(id);
-      setWatchListCoins(watchListCoins.filter((coin)=> coin.id !== id));
+      setWatchListCoins(watchListCoins?.filter((coin)=> coin.id !== id));
       setIsRemoved(!isRemoved);
   }
 

@@ -2,7 +2,6 @@ import React from 'react'
 import './style.css';
 import Button from '../../Common/Button';
 import iphone from '../../../assets/img1.jpg'
-// import gradient from '../../../assets/img2.jpg';
 import { motion } from 'framer-motion';
 
 function MainComponent() {

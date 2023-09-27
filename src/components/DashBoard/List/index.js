@@ -8,6 +8,7 @@ import { Link } from 'react-router-dom';
 import StarOutlineRoundedIcon from '@mui/icons-material/StarOutlineRounded';
 import StarsRoundedIcon from '@mui/icons-material/StarsRounded';
 import { addToWatchList } from '../../../functions/addToWatchList';
+import {removeFromWatchList} from '../../../functions/removeFromWatchList';
 import { IsAdded } from '../../../functions/IsAdded';
 import { convertNumber } from '../../../functions/convertNumber';
 import { motion } from "framer-motion";
@@ -23,10 +24,12 @@ function List({coin,handleRemove}) {
   const handleIconClick = (e,id)=>{
     e.preventDefault();
     if(IsAdded(coin.id)){
-      handleRemove(coin.id);
+      removeFromWatchList(coin.id);
+      setWatchlisted(false);
     }
     else{
       addToWatchList(id);
+      setWatchlisted(true);
     }
   }
 

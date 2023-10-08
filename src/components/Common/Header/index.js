@@ -43,7 +43,7 @@ function Header() {
 
   return (
     <div className='navbar'>
-        <Link className='logo' to='/'>CryptoTracker<span>.</span></Link>
+        <Link className='logo' to='/'>CoinWatchr<span>.</span></Link>
         <div className='links'>
           <Switch checked={darkMode} onClick={() => changeMode()} />
           <Link className='link' to='/'>Home</Link>

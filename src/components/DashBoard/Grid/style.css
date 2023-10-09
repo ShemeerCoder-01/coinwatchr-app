@@ -29,6 +29,7 @@
 .left{
     display: flex;
     gap: 1rem;
+    justify-content: flex-start;
 }
 
 .img{
@@ -142,15 +143,11 @@
         box-sizing: border-box;
     }
     
-    .firstRow{
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-    }
     
     .left{
         display: flex;
         gap: 1rem;
+        justify-content: flex-start;
     }
     
     .img{

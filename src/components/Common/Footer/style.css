@@ -21,10 +21,20 @@
   .footer h2 {
     cursor: pointer;
   }
+
+  .logo-heading,.footer-info,.footer-links{
+    display: flex;
+    flex-direction: column;
+    line-height: 6px;
+  }
   
+  .footer-links p{
+    font-weight: 600;
+  }
   .social-links {
     display: flex;
-    justify-content: flex-end;
+    flex-direction: column;
+    /* justify-content: flex-end; */
     align-items: center;
     gap: 1rem;
   }

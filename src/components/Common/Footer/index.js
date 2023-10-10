@@ -16,9 +16,24 @@ function Footer() {
 
   return (
     <div className='footer'>
+       
+      <div className='logo-heading'>
         <h2 className="logo" onClick={() => topFunction()}>
-        CoinWatchr<span>.</span>
-      </h2>
+          CoinWatchr<span>.</span>
+        </h2>
+        <p>© 2023 <i>CoinWatchr</i>. All Rights Reserved.</p>
+      </div> 
+      <div className="footer-links">
+        <p>Contact Us</p>
+        <p>Privacy Policy</p>
+        <p>Terms of Service</p>
+      </div>
+      <div className="footer-info">
+        <p>Address : </p>
+        <p>12/144 Main Street</p>
+        <p>Near Zudio, WhiteField</p>
+        <p>Banglore,Karnataka-06</p> 
+      </div>
       <div className="social-links">
         <a href="https://facebook.com">
           <FacebookIcon className="social-link" />

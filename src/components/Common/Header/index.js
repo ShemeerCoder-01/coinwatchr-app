@@ -8,6 +8,7 @@ import Switch from "@mui/material/Switch";
 function Header() {
 
   const [darkMode, setDarkMode] = useState(false);
+  const [currentTab,setCurrentTab] = useState(sessionStorage.getItem('currTab') ||'Home');
  
 
   useEffect(() => {
@@ -43,12 +44,12 @@ function Header() {
 
   return (
     <div className='navbar'>
-        <Link className='logo' to='/'>CoinWatchr<span>.</span></Link>
+        <Link className='logo' to='/' onClick={()=> {setCurrentTab('Home'); sessionStorage.setItem('currTab','Home')}}>CoinWatchr<span>.</span></Link>
         <div className='links'>
           <Switch checked={darkMode} onClick={() => changeMode()} />
-          <Link className='link' to='/'>Home</Link>
-          <Link className='link' to='/compare'>Compare</Link>
-          <Link className='link' to='/watchlist'>WatchList</Link>
+          <Link className='link' to='/' style={{color:currentTab==='Home'?'#3a80e9':''}} onClick={()=> {setCurrentTab('Home'); sessionStorage.setItem('currTab','Home')}}>Home</Link>
+          <Link className='link' to='/compare'  style={{color:currentTab==='Compare'?'#3a80e9':''}} onClick={()=> {setCurrentTab('Compare'); sessionStorage.setItem('currTab','Compare')}}>Compare</Link>
+          <Link className='link' to='/watchlist'  style={{color:currentTab==='WatchList'?'#3a80e9':''}} onClick={()=> {setCurrentTab('WatchList'); sessionStorage.setItem('currTab','WatchList')}}>WatchList</Link>
           <Button text ={"DashBoard"}/>
         </div>
         <div className='side-drawer'>

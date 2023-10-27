@@ -3,7 +3,7 @@ import './style.css'
 import { useNavigate } from 'react-router-dom';
 import { RWebShare } from 'react-web-share';
 
-function Button({text}) {
+function Button({text,handleClick}) {
 
   const navigate = useNavigate();
   
@@ -19,7 +19,7 @@ function Button({text}) {
         >
           <button onClick={()=> navigate('/dashboard')} className='outlined-btn'>{text}</button>
         </RWebShare>):
-        (<button onClick={()=> navigate('/dashboard')} className='btn'>{text}</button>)}
+        (<button onClick={()=> {handleClick(); navigate('/dashboard')}} className='btn'>{text}</button>)}
     </div>
   )
 }

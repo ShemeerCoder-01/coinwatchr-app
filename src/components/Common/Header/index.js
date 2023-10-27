@@ -2,7 +2,7 @@ import React,{useState,useEffect} from 'react';
 import './style.css'
 import TemporaryDrawer from './Drawer';
 import Button from '../Button';
-import { Link } from 'react-router-dom';
+import { Link} from 'react-router-dom';
 import Switch from "@mui/material/Switch";
 
 function Header() {
@@ -41,6 +41,10 @@ function Header() {
     setDarkMode(false);
   };
 
+  const handleClick = ()=>{
+    setCurrentTab('Dashboard');
+    sessionStorage.setItem('currTab','Dashboard');
+  }
 
   return (
     <div className='navbar'>
@@ -50,7 +54,7 @@ function Header() {
           <Link className='link' to='/' style={{color:currentTab==='Home'?'#3a80e9':''}} onClick={()=> {setCurrentTab('Home'); sessionStorage.setItem('currTab','Home')}}>Home</Link>
           <Link className='link' to='/compare'  style={{color:currentTab==='Compare'?'#3a80e9':''}} onClick={()=> {setCurrentTab('Compare'); sessionStorage.setItem('currTab','Compare')}}>Compare</Link>
           <Link className='link' to='/watchlist'  style={{color:currentTab==='WatchList'?'#3a80e9':''}} onClick={()=> {setCurrentTab('WatchList'); sessionStorage.setItem('currTab','WatchList')}}>WatchList</Link>
-          <Button text ={"DashBoard"}/>
+          <Button handleClick={handleClick} text ={"DashBoard"}/>
         </div>
         <div className='side-drawer'>
           <TemporaryDrawer/>

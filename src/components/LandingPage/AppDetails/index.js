@@ -28,7 +28,7 @@ function AppDetails({ img, heading, Description, margin, align }) {
             className='appDetails'
             style={{ marginTop: margin }}>
             <div className='left'>
-                <img src={img} alt='img'/>
+                <img className='app-thumbnail' src={img} alt='img'/>
             </div>
             <div className='right'>
                 <h1>{heading}</h1>
@@ -48,7 +48,7 @@ function AppDetails({ img, heading, Description, margin, align }) {
                     <p className='para'>{Description}</p>
                 </div>
                 <div className='left'>
-                    <img src={img} alt='img'/>
+                    <img className='app-thumbnail' src={img} alt='img'/>
                 </div>
             </motion.div>
         ):(
@@ -59,7 +59,7 @@ function AppDetails({ img, heading, Description, margin, align }) {
                 className='appDetails'
                 style={{ marginTop: margin }}>
                 <div className='left'>
-                    <img src={img} alt='img'/>
+                    <img className='app-thumbnail' src={img} alt='img'/>
                 </div>
                 <div className='right'>
                     <h1>{heading}</h1>

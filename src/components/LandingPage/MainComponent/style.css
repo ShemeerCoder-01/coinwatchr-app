@@ -145,6 +145,10 @@
         margin: auto;
     }
 
+    .rightArea{
+        margin-bottom: 2rem;
+    }
+
 
     .crypto-heading,.realTime-heading{
         font-size: 4rem;

@@ -69,6 +69,18 @@
     .footer h2 {
       font-size: 1rem;
     }
+
+    .footer-info{
+      display: none;
+    }
+
+    .footer-links p{
+      font-size: 9px;
+    }
+
+    .logo-heading p {
+      font-size: 9px;
+    }
   
     .social-links {
       gap: 0.5rem;

@@ -7,22 +7,18 @@ import StarOutlineRoundedIcon from '@mui/icons-material/StarOutlineRounded';
 import StarsRoundedIcon from '@mui/icons-material/StarsRounded';
 import { Link } from 'react-router-dom';
 import { addToWatchList } from '../../../functions/addToWatchList';
-import {removeFromWatchList} from '../../../functions/removeFromWatchList';
 import { IsAdded } from '../../../functions/IsAdded';
 import {motion} from 'framer-motion';
 
 function Grid({ coin,handleRemove}) {
-
   const [watchlisted,setWatchlisted] = useState(false);
-  
   useEffect(()=>{
     setWatchlisted(IsAdded(coin.id));
   },[coin]);
-  
   const handleIconClick = (e,id)=>{
     e.preventDefault();
     if(IsAdded(coin.id)){
-      removeFromWatchList(coin.id);
+      handleRemove(coin.id);
       setWatchlisted(false);
     }
     else{
@@ -30,7 +26,6 @@ function Grid({ coin,handleRemove}) {
       setWatchlisted(true);
     }
   }
-
   return (
     <Link to={`/coin/${coin.id}`} style={{textDecoration:"none",color:"var(--white)"}}>
       <motion.div
@@ -75,7 +70,6 @@ function Grid({ coin,handleRemove}) {
           <p className='total'>Market Cap:${coin.market_cap.toLocaleString()}</p>
 
         </div>
-
       </motion.div>
     </Link>
   );

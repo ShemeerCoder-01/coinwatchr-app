@@ -15,34 +15,26 @@ function DashBoardPage() {
   const [search,setSearch] = useState("");
   const [page, setPage] = useState(1);
   const [isLoading,setIsLoading] = useState(true);
-
   const onPageChange = (event, value) => {
     setPage(value);
     let prevIndex = (value -1) * 10;
     setCurrPage(crypto?.slice(prevIndex,prevIndex+10));
   };
-  
-
   const onchangeSearch = (e)=>{
     setSearch(e.target.value);
     let filtered = crypto?.filter((item)=> item.name.toLowerCase().includes(e.target.value.toLowerCase()) ||
     item.symbol.toLowerCase().includes(e.target.value.toLowerCase()) );
     setFiltered(filtered);
   }
-
-  
-
   useEffect(()=>{
     getData();
   },[])
-
   async function getData(){
     const coins = await getFullCoins();
     setCrypto(coins);
     setCurrPage(coins?.slice(0,10));
     setIsLoading(false);
   }
-
   return (
     <div className='dashBoardPage'>
       <Header/>
@@ -53,8 +45,8 @@ function DashBoardPage() {
           {
             search && filtered.length === 0 && (
               <div style={{display:"flex",flexDirection:"column", justifyContent:"center",alignItems:"center"}}>
-                <h1 style={{ textAlign: "center",margin:0}}>Sorry...</h1>
-                <p>Search item not found</p>
+                <h1 style={{ textAlign: "center",margin:0,letterSpacing:'1.2px'}}><i>Sorry...</i></h1>
+                <p><i>Search item not found</i></p>
               </div>
             )
           }
@@ -65,7 +57,6 @@ function DashBoardPage() {
           <Footer/>
         </div>
       }
-      
     </div>
   )
 }

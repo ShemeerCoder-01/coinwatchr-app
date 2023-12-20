@@ -6,11 +6,8 @@ import { Link} from 'react-router-dom';
 import Switch from "@mui/material/Switch";
 
 function Header() {
-
   const [darkMode, setDarkMode] = useState(false);
   const [currentTab,setCurrentTab] = useState(sessionStorage.getItem('currTab') ||'Home');
- 
-
   useEffect(() => {
     if (localStorage.getItem("theme") === "light") {
       setLight();
@@ -18,7 +15,6 @@ function Header() {
       setDark();
     }
   }, []);
-
   const changeMode = () => {
     if (localStorage.getItem("theme") !== "dark") {
       setDark();
@@ -28,22 +24,19 @@ function Header() {
     setDarkMode(!darkMode);
     
   };
-
   const setDark = () => {
     localStorage.setItem("theme", "dark");
     document.documentElement.setAttribute("data-theme", "dark");
     setDarkMode(true);
   };
-
   const setLight = () => {
     localStorage.setItem("theme", "light");
     document.documentElement.setAttribute("data-theme", "light");
     setDarkMode(false);
   };
-
   const handleClick = ()=>{
-    setCurrentTab('Dashboard');
-    sessionStorage.setItem('currTab','Dashboard');
+    setCurrentTab('');
+    sessionStorage.setItem('currTab','');
   }
 
   return (

@@ -6,22 +6,20 @@ import LoaderComponent from '../components/Common/Loader';
 import Button from '../components/Common/Button';
 import { removeFromWatchList } from '../functions/removeFromWatchList';
 import Footer from '../components/Common/Footer'
+import { useNavigate } from 'react-router-dom';
 
 function WatchListPage() {
-
   const [watchListCoins, setWatchListCoins] = useState([]);
   const [isLoading, setIsLoading] = useState(false);
-  const [isRemoved,setIsRemoved] = useState(false);
-
- 
-
-  
-
-
+  const [isRemoved, setIsRemoved] = useState(false);
+  const coinIds = JSON.parse(localStorage.getItem('watchlist'));
+  const navigate = useNavigate();
   useEffect(() => {
-    getData();
-  },[]);
-  
+    if(coinIds !== undefined && coinIds?.length !== 0){
+     getData();
+    }
+  // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
   async function getData() {
     setIsLoading(true);
     const FullCoins = await getFullCoins();
@@ -32,40 +30,39 @@ function WatchListPage() {
     }
     setIsLoading(false);
   }
-
-  const handleRemove = (id)=>{
-      removeFromWatchList(id);
-      setWatchListCoins(watchListCoins?.filter((coin)=> coin.id !== id));
-      setIsRemoved(!isRemoved);
+  const handleClick = () => {
+    sessionStorage.setItem('currTab','');
+    navigate('/dashboard');
   }
-
-
+  const handleRemove = (id) => {
+    removeFromWatchList(id);
+    setWatchListCoins(watchListCoins?.filter((coin) => coin.id !== id));
+    console.log(watchListCoins);
+    setIsRemoved(!isRemoved);
+  }
+  if(isLoading) return <LoaderComponent/>
   return (
     <div>
-      {isLoading? (
-        <LoaderComponent />
-      ) : (
-        <div style={{ minHeight: "90vh" }}>
-          {watchListCoins.length === 0? (
-            <div className='emptyWatchlist'>
-              <Header />
-              <h1 style={{ textAlign: "center", marginBottom: "2rem" }}>
-                No Items in the Watchlist
-              </h1>
-              <div style={{ display: "flex", justifyContent: "center" }}>
-                <Button text={"Dashboard"} />
-              </div>
-              <Footer className="footer"/>
+      <div style={{ minHeight: "90vh" }}>
+        {watchListCoins === undefined || watchListCoins?.length === 0 ? (
+          <div className='emptyWatchlist'>
+            <Header />
+            <h1 style={{ textAlign: "center", marginBottom: "2rem" }}>
+              No Items in the Watchlist
+            </h1>
+            <div style={{ display: "flex", justifyContent: "center" }}>
+              <Button text={"Dashboard"} handleClick={handleClick} />
             </div>
-          ) : (
-            <div style={{ height: "95vh" }}>
-              <Header />
-              <Tabs coins={watchListCoins} handleRemove={handleRemove} />
-              <Footer/>
-            </div>
-          )}
-        </div>
-      )}
+            <Footer />
+          </div>
+        ) : (
+          <div style={{ height: "95vh" }}>
+            <Header />
+            <Tabs coins={watchListCoins} handleRemove={handleRemove} />
+            <Footer />
+          </div>
+        )}
+      </div>
     </div>
   );
 

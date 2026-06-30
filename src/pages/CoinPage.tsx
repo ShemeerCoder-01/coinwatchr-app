@@ -1,0 +1,89 @@
+import React, { useEffect, useState } from 'react'
+import { useParams } from 'react-router-dom';
+import List from '../components/DashBoard/List';
+import { coinObject } from '../functions/currCoinObject.';
+import CoinInfo from '../components/Coins/CoinInfo';
+import { getCoinData } from '../functions/getCoinData';
+import { getPrice } from '../functions/getPrice';
+import LineChart from '../components/Coins/LineChart';
+import SelectRange from '../components/Coins/SelectDate';
+import { settingChartData } from '../functions/settingChartData';
+import ToggleType from '../components/Coins/ToggleType';
+import {CoinData,ChartData} from "../types"
+import Layout from '../components/Layout';
+
+const CoinPage: React.FC = () => {
+    
+    const {id} = useParams<{id:string}>();
+    console.log(" id ",id);
+    const [currCoin,setCurrCoin] = useState<CoinData | null>(null);
+    const [isLoading,setIsLoading] = useState<boolean>(true);
+    const [days,setDays] = useState<number>(30);
+    const [chartData,setChartData] = useState<ChartData>({});
+    const [priceType, setPriceType] = useState<String>('prices');
+
+    
+    useEffect(()=>{
+        getData(id);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+    },[id]);
+
+    const handleDaysChange = async(e:React.ChangeEvent<HTMLSelectElement>)=>{
+        setIsLoading(true);
+        const newPriceData = await getPrice(id,e.target.value,priceType);
+        settingChartData(setChartData,newPriceData);
+        setDays(e.target.value);
+        setIsLoading(false);
+
+    }
+
+    const handlePriceTypeChange = async(event, newType) => {
+        setIsLoading(true);
+        setPriceType(prevState=> newType !== null? newType:prevState);
+        if(newType === null){
+            const newPriceData = await getPrice(id,days,priceType);
+            settingChartData(setChartData,newPriceData);
+        }else{
+            const newPriceData = await getPrice(id,days,newType);
+            settingChartData(setChartData,newPriceData);
+        }
+        setIsLoading(false);
+
+    };
+
+    async function getData(id:string){
+        setIsLoading(true);
+       const coinData = await getCoinData(id);
+       console.log(coinData);
+       if(coinData){
+        coinObject(setCurrCoin,coinData);
+        const priceData = await getPrice(id,days,priceType);
+        if(priceData){
+            settingChartData(setChartData,priceData);
+            setIsLoading(false);
+        }
+       
+       }
+    }
+  return (
+    <Layout>
+        <div>
+            <div>
+                <div className='currCoinTab'>
+                    <List coin={currCoin} clickable={false}/>
+                </div>
+                <div className='currCoinTab'>
+                    <SelectRange days={days} handleDaysChange={handleDaysChange}/>
+                    <ToggleType priceType={priceType} handlePriceTypeChange={handlePriceTypeChange}/>
+                    <LineChart chartData={chartData} priceType={priceType} multiAxis={false} />
+                </div>
+                <div className='currCoinTab'>
+                    <CoinInfo Name={currCoin?.name} Description={currCoin?.desc}/>
+                </div>
+            </div>
+        </div>
+    </Layout>
+  )
+}
+
+export default CoinPage;

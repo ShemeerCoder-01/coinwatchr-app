@@ -1,5 +1,6 @@
 import React from 'react'
 import SearchRoundedIcon from '@mui/icons-material/SearchRounded';
+// @ts-ignore
 import './style.css';
 
 interface SearchProps{

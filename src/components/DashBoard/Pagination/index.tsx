@@ -1,9 +1,15 @@
 import React from 'react';
 import Pagination from '@mui/material/Pagination';
+// @ts-ignore
 import './style.css';
 
+interface PaginationProps{
+  page:number,
+  onPageChange:(e:React.ChangeEvent<unknown>,value:number) => void;
+}
 
-export default function PaginationComponent({page,onPageChange}) {
+
+const PaginationComponent: React.FC<PaginationProps> = ({page,onPageChange}) =>{
  
 
   return (
@@ -28,3 +34,5 @@ export default function PaginationComponent({page,onPageChange}) {
     </div>
   );
 }
+
+export default PaginationComponent;

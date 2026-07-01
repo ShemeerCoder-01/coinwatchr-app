@@ -1,10 +1,11 @@
 import React, { useEffect, useState } from 'react'
 import ArrowUpwardRoundedIcon from '@mui/icons-material/ArrowUpwardRounded';
+//  @ts-ignore
 import './style.css';
 
-function BacktoTop() {
+const BacktoTop: React.FC = () =>{
 
-  const [showButton, setShowButton] = useState(false);
+  const [showButton, setShowButton] = useState<boolean>(false);
 
   const handleScroll = () => {
     if (window.scrollY > 300) {

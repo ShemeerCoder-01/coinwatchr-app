@@ -2,7 +2,7 @@ import React from 'react'
 import { Line } from 'react-chartjs-2';
 import { convertNumber } from '../../../functions/convertNumber';
 import {ChartData as MyChartData} from "../../../types"
-import LoaderComponent from '../../Common/Loader';
+import { ChartOptions } from 'chart.js';
 
 interface LineChartProps{
     chartData:MyChartData;

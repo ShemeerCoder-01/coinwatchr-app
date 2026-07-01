@@ -15,7 +15,6 @@ import Layout from '../components/Layout';
 const CoinPage: React.FC = () => {
     
     const {id} = useParams<{id:string}>();
-    console.log(" id ",id);
     const [currCoin,setCurrCoin] = useState<CoinData | null>(null);
     const [isLoading,setIsLoading] = useState<boolean>(true);
     const [days,setDays] = useState<number>(30);

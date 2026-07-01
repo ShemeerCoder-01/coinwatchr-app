@@ -1,4 +1,4 @@
-import { toast } from "react-toastify";
+
 export const addToWatchList = (id:string)=>{
    
     if(localStorage.getItem('watchlist')){
@@ -15,7 +15,7 @@ export const addToWatchList = (id:string)=>{
         const coinsData = JSON.stringify(watchlist);
         localStorage.setItem("watchlist", coinsData);
     }
-    toast.success(
-        `${id.slice(0, 1).toUpperCase() + id.slice(1)} - Added To The Watchlist!`
-    );
+    // toast.success(
+    //     `${id.slice(0, 1).toUpperCase() + id.slice(1)} - Added To The Watchlist!`
+    // );
 }

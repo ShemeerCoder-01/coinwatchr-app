@@ -1,4 +1,5 @@
-import React from 'react'
+import React from 'react';
+// @ts-ignore
 import './style.css';
 import Button from '../../Common/Button';
 import iphone from '../../../assets/img1.jpg'
@@ -34,8 +35,8 @@ function MainComponent() {
         animate={{opacity:1,x:0}}
         transition={{type:"smooth",duration:0.5,delay:1.5}}
         >
-          <Button text={"DashBoard"} handleClick={handleClick} />
-          <Button text={"Share"} outlined />
+          <Button text={"DashBoard"} handleClick={handleClick} style={{padding:"0.75rem 1.5rem",width:"150px"}} />
+          <Button text={"Share"} handleClick={() =>{}} style={{padding:"0.75rem 1.5rem",width:"150px"}} />
         </motion.div>
       </div>
       <div className='rightArea'>

@@ -1,4 +1,5 @@
-import React from 'react'
+import React from 'react';
+// @ts-ignore
 import './style.css';
 import FacebookIcon from "@mui/icons-material/Facebook";
 import EmailIcon from "@mui/icons-material/Email";
@@ -6,7 +7,7 @@ import TwitterIcon from "@mui/icons-material/Twitter";
 import InstagramIcon from "@mui/icons-material/Instagram";
 import GitHubIcon from '@mui/icons-material/GitHub';
 
-function Footer() {
+const Footer: React.FC = () => {
 
   function topFunction() {
     document.body.scrollTop = 0;

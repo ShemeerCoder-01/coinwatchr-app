@@ -1,26 +1,32 @@
 import React from 'react'
+// @ts-ignore
 import './style.css'
-import { useNavigate } from 'react-router-dom';
 import { RWebShare } from 'react-web-share';
 
-function Button({text,handleClick}) {
+interface ButtonProps{
+  text:string;
+  handleClick:() => void;
+  style:object;
+}
 
-  const navigate = useNavigate();
-  
-  return (
-    <div>
-      {text === "Share"?(
-        <RWebShare
+const Button: React.FC<ButtonProps> =({text,handleClick,style}) =>{
+
+  if(text === "Share"){
+    return(
+      <RWebShare
         data={{
           text:"A CryptoApp Where you Can track Crypto Coins Live!!!!",
           url:"https://crypto-tracker-app-one.vercel.app/",
           title:"ShemeerCoder-01"
         }}
         >
-          <button onClick={()=> navigate('/dashboard')} className='outlined-btn'>{text}</button>
-        </RWebShare>):
-        (<button onClick={()=> {handleClick(); navigate('/dashboard')}} className='btn'>{text}</button>)}
-    </div>
+          <button onClick={handleClick} style={style} className='outlined-btn'>{text}</button>
+        </RWebShare>
+    )
+  }
+  
+  return (
+      <button onClick={handleClick} className='btn' style={style}>{text}</button>
   )
 }
 

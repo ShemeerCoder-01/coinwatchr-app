@@ -1,4 +1,5 @@
-import React, { useState } from 'react'
+import React, { useState } from 'react';
+// @ts-ignore
 import './style.css';
 
 interface CoinInfoProps{

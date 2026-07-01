@@ -6,6 +6,7 @@ import BacktoTop from "../components/Common/BacktoTop";
 import Layout from "../components/Layout";
 import { Coin } from "../types";
 import { useCoins } from "../hooks/useCoins";
+import { removeFromWatchList } from "../functions/removeFromWatchList";
 
 const DashBoardPage: React.FC = () => {
   const { coins } = useCoins();
@@ -18,7 +19,7 @@ const DashBoardPage: React.FC = () => {
     if (coins) {
       setCurrPage(coins?.slice(0, 10));
     }
-  }, []);
+  }, [coins]);
   
   const onPageChange = (event: React.ChangeEvent<unknown>, value: number) => {
     setPage(value);
@@ -40,7 +41,7 @@ const DashBoardPage: React.FC = () => {
       <div className="dashBoardPage">
         <div>
           <Search search={search} onchangeSearch={onchangeSearch} />
-          <Tabs coins={search ? filtered : currPage} handleRemove={() => {}} />
+          <Tabs coins={search ? filtered : currPage} handleRemove={removeFromWatchList} />
           {search && filtered.length === 0 && (
             <div
               style={{

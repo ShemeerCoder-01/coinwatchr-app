@@ -1,4 +1,4 @@
-export const convertNumber = (number:number): string|undefined =>{
+export const convertNumber = (number:number| string): string|undefined =>{
     if(!number) return;
     const numberString = number.toLocaleString();
     const numArr = numberString?.split(",");

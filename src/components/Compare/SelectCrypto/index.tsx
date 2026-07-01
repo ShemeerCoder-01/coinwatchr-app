@@ -1,5 +1,6 @@
 import MenuItem from '@mui/material/MenuItem';
 import Select, { SelectChangeEvent } from '@mui/material/Select';
+// @ts-ignore
 import './style.css';
 import { useCoins } from '../../../hooks/useCoins';
 

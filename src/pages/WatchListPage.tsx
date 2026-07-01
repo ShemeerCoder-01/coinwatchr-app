@@ -1,10 +1,8 @@
 import React, { useEffect, useState } from "react";
-import Header from "../components/Common/Header";
 import Tabs from "../components/DashBoard/ViewTab";
 import LoaderComponent from "../components/Common/Loader";
 import Button from "../components/Common/Button";
 import { removeFromWatchList } from "../functions/removeFromWatchList";
-import Footer from "../components/Common/Footer";
 import { useNavigate } from "react-router-dom";
 import { Coin } from "../types";
 import { useCoins } from "../hooks/useCoins";
@@ -55,7 +53,7 @@ const WatchListPage: React.FC = () => {
             <div style={{position:"absolute",top:"50%",left:"50%",transform:"translate(-50%,-50%)"}}>
               <p style={{fontSize:"20px",fontWeight:"400",fontFamily:"sans-serif"}}>No Items in the Watchlist</p>
               <div style={{ display: "flex", justifyContent: "center" }}>
-                <Button text={"Dashboard"} handleClick={handleClick} />
+                <Button text={"Dashboard"} handleClick={handleClick} style={{padding:"0.75rem 1.5rem",width:"150px"}} />
               </div>
             </div>
           ) : (

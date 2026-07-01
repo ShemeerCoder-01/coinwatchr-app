@@ -1,56 +1,40 @@
-import React, { useState} from 'react';
-import { createTheme,ThemeProvider} from '@mui/material';
-import {Switch} from '@mui/material';
+import React, { useState } from 'react';
+import { createTheme, ThemeProvider, Theme } from '@mui/material';
+import { Switch } from '@mui/material';
 
-
-// Create custom light and dark themes
-const lightTheme = createTheme({
+const lightTheme: Theme = createTheme({
   palette: {
     mode: 'light',
-    primary:{
-      main:"#fff"
-    },
-    background:{
-      paper:"#fff"
-    }
+    primary: { main: "#fff" },
+    background: { paper: "#fff" },
   },
 });
 
-const darkTheme = createTheme({
+const darkTheme: Theme = createTheme({
   palette: {
     mode: 'dark',
-    primary:{
-      main:"#3A80E9"
-    },
-    background:{
-      paper:"#121212"
-    }
+    primary: { main: "#3A80E9" },
+    background: { paper: "#121212" },
   },
 });
 
+const ThemeSwitcher: React.FC = () => {
+  const [theme, setTheme] = useState<Theme>(darkTheme);
 
-
-// ThemeProvider and theme toggle component
-function ThemeSwitcher() {
-  const [theme, setTheme] = useState(darkTheme);
-
-  const toggleTheme = () => {
-    setTheme((prevTheme) => (prevTheme === lightTheme ? darkTheme : lightTheme));
+  const toggleTheme = (): void => {
+    setTheme(prevTheme => prevTheme === lightTheme ? darkTheme : lightTheme);
   };
 
   return (
-    <ThemeProvider theme={darkTheme}>
+    <ThemeProvider theme={theme}>
       <div>
         <Switch
-          checked={theme === darkTheme?true:false}
+          checked={theme === darkTheme}
           onChange={toggleTheme}
         />
-        {/* <MyComponent /> */}
       </div>
     </ThemeProvider>
   );
-}
+};
 
 export default ThemeSwitcher;
-
-

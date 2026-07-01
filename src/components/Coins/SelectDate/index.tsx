@@ -1,11 +1,12 @@
 import React from 'react';
-import './style.css'
+// @ts-ignore
+import './style.css';
 import MenuItem from '@mui/material/MenuItem';
-import Select from '@mui/material/Select';
+import Select, { SelectChangeEvent } from '@mui/material/Select';
 
 interface SelectRangeProps{
   days:number;
-  handleDaysChange:(e:React.ChangeEvent<HTMLSelectElement>) => void;
+  handleDaysChange:(e:SelectChangeEvent<number>) => void;
   isCompare?:boolean;
 }
 

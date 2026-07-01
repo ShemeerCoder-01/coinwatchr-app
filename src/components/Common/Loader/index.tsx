@@ -1,8 +1,9 @@
 import React from 'react'
 import CircularProgress from '@mui/material/CircularProgress';
-import './style.css'
+// @ts-ignore
+import './style.css';
 
-function LoaderComponent() {
+const LoaderComponent : React.FC = () =>{
   return (
     <div className='loader'>
         <CircularProgress />

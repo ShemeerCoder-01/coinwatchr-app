@@ -5,6 +5,7 @@ import TabList from '@mui/lab/TabList';
 import TabPanel from '@mui/lab/TabPanel';
 import { ThemeProvider,createTheme } from '@mui/material';
 import Grid from '../Grid';
+// @ts-ignore
 import './style.css';
 import List from '../List';
 import {Coin} from "../../../types"

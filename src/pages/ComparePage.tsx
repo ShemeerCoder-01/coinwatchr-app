@@ -21,84 +21,87 @@ const ComparePage: React.FC = () => {
   const [days, setDays] = useState<number>(30);
   const [chartData, setChartData] = useState({});
   const [priceType, setPriceType] = useState<string>("prices");
-  const [isLoading, setIsLoading] = useState<boolean>(true);
 
   useEffect(() => {
     if (crypto1 && crypto2) {
       getData();
     }
+  // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [crypto1, crypto2]);
 
   const handlePriceTypeChange = async (
     event: React.ChangeEvent<HTMLSelectElement>,
     newType: string,
   ) => {
-    setIsLoading(true);
     setPriceType(newType);
     try {
       const newPriceData1 = await getPrice(crypto1, days, newType);
       const newPriceData2 = await getPrice(crypto2, days, newType);
       settingChartData(setChartData, newPriceData1, newPriceData2);
     } catch (e) {
-      console.log(e);
-    } finally {
-      setIsLoading(false);
+      console.error(e);
     }
   };
 
   const handleDaysChange = async (e: React.ChangeEvent<HTMLSelectElement>) => {
-    setIsLoading(true);
-    const newPriceData1 = await getPrice(
-      crypto1,
-      Number(e.target.value),
-      priceType,
-    );
-    const newPriceData2 = await getPrice(
-      crypto2,
-      Number(e.target.value),
-      priceType,
-    );
-    settingChartData(setChartData, newPriceData1, newPriceData2);
-    setDays(Number(e.target.value));
-    setIsLoading(false);
+    try {
+      const newPriceData1 = await getPrice(
+        crypto1,
+        Number(e.target.value),
+        priceType,
+      );
+      const newPriceData2 = await getPrice(
+        crypto2,
+        Number(e.target.value),
+        priceType,
+      );
+      settingChartData(setChartData, newPriceData1, newPriceData2);
+      setDays(Number(e.target.value));
+    } catch (error) {
+      console.error(error);
+    }
   };
 
   async function getData() {
-    const coin1Data = await getCoinData(crypto1);
-    const coin2Data = await getCoinData(crypto2);
-    coinObject(setCurrCrypto2, coin2Data);
-    coinObject(setCurrCrypto1, coin1Data);
-    const priceData1 = await getPrice(crypto1, days, "prices");
-    const priceData2 = await getPrice(crypto2, days, "prices");
-    const coins = [crypto1, crypto2];
-    settingChartData(setChartData, priceData1, priceData2, coins);
-    setIsLoading(false);
+    try {
+      const coin1Data = await getCoinData(crypto1);
+      const coin2Data = await getCoinData(crypto2);
+      coinObject(setCurrCrypto2, coin2Data);
+      coinObject(setCurrCrypto1, coin1Data);
+      const priceData1 = await getPrice(crypto1, days, "prices");
+      const priceData2 = await getPrice(crypto2, days, "prices");
+      const coins = [crypto1, crypto2];
+      settingChartData(setChartData, priceData1, priceData2, coins);
+    } catch (error) {
+      console.error(error);
+    }
   }
 
   const handleCoinsChange = async (
     e: React.ChangeEvent<{ value: unknown }> | SelectChangeEvent,
     isSecond: boolean,
   ) => {
-    setIsLoading(true);
-    if (isSecond) {
-      setCrypto2(e.target.value);
-      const coin2Data = await getCoinData(e.target.value);
-      coinObject(setCurrCrypto2, coin2Data);
-      const priceData1 = await getPrice(crypto1, days, "prices");
-      const priceData2 = await getPrice(e.target.value, days, "prices");
-      const coins = [crypto1, e.target.value];
-      settingChartData(setChartData, priceData1, priceData2, coins);
-    } else {
-      setCrypto1(e.target.value);
-      const coin1Data = await getCoinData(e.target.value);
-      coinObject(setCurrCrypto1, coin1Data);
-      const priceData1 = await getPrice(e.target.value, days, "prices");
-      const priceData2 = await getPrice(crypto2, days, "prices");
-      const coins = [e.target.value, crypto2];
-      settingChartData(setChartData, priceData1, priceData2, coins);
+    try {
+      if (isSecond) {
+        setCrypto2(e.target.value);
+        const coin2Data = await getCoinData(e.target.value);
+        coinObject(setCurrCrypto2, coin2Data);
+        const priceData1 = await getPrice(crypto1, days, "prices");
+        const priceData2 = await getPrice(e.target.value, days, "prices");
+        const coins = [crypto1, e.target.value];
+        settingChartData(setChartData, priceData1, priceData2, coins);
+      } else {
+        setCrypto1(e.target.value);
+        const coin1Data = await getCoinData(e.target.value);
+        coinObject(setCurrCrypto1, coin1Data);
+        const priceData1 = await getPrice(e.target.value, days, "prices");
+        const priceData2 = await getPrice(crypto2, days, "prices");
+        const coins = [e.target.value, crypto2];
+        settingChartData(setChartData, priceData1, priceData2, coins);
+      }
+    } catch (error) {
+      console.error(error);
     }
-
-    setIsLoading(false);
   };
 
   return (
@@ -118,13 +121,13 @@ const ComparePage: React.FC = () => {
             />
           </div>
           <div>
-            {(crypto1 && crypto2) && (
+            {crypto1 && crypto2 && (
               <>
                 <div className="comparePageTab">
                   <List coin={currCrypto1} clickable={false} />
                 </div>
                 <div className="comparePageTab">
-                  <List coin={currCrypto2} clickable={false}/>
+                  <List coin={currCrypto2} clickable={false} />
                 </div>
                 <div className="comparePageTab">
                   <ToggleType

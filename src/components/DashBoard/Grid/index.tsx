@@ -20,10 +20,11 @@ interface GridProps {
 }
 
 const Grid: React.FC<GridProps> = ({ coin, handleRemove }) => {
-  const {addCoin,removeCoin,isWatchListed} = useWatchListedCoins();
+  const {addCoin,removeCoin,isWatchListed,watchListedCoins} = useWatchListedCoins();
   const [confirmModal, setConfirmModal] = useState<boolean>(false);
   const navigate = useNavigate();
 
+  console.log(" watchListedCoins ",watchListedCoins)
 
   const handleIconClick = (
     e: React.MouseEvent<HTMLButtonElement>,

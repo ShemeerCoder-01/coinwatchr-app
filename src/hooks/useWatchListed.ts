@@ -2,7 +2,7 @@ import { useContext } from "react";
 import { WatchListContext } from "../context/watchListContext";
 
 interface WatchListContextType{
-    watchlistedCoins:string[],
+    watchListedCoins:string[],
     addCoin:(id:string) => void;
     removeCoin:(id:string) => void;
     isWatchListed:(id:string) => boolean;

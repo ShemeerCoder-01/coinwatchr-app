@@ -126,7 +126,7 @@ const List: React.FC<ListProps> = ({ coin, handleRemove, clickable }) => {
             <Tooltip title="Total Market Capital" placement="top">
               <p className="totalMoney">${convertNumber(coin?.market_cap)}</p>
             </Tooltip>
-            <Tooltip title="Add to Watchlist" placement="top">
+            <Tooltip title={isWatchListed(coin?.id)?"Remove from watchlist":"Add to watchlist"} placement="top">
               <div>
                 {isWatchListed(coin?.id)  ? (
                   <IconButton onClick={(e) => handleIconClick(e, coin?.id)}>
